@@ -20,8 +20,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure--3zfb6-6^g=xwysvk^@z3v1dlv07++bmy1)y*buqj#!pc67ot3'
+SECRET_KEY = 'django-insecure-@8d(bmwz3i8nq=jod*_i+q(8$fp!9i@)s!xm)+4+*iv^9u2s_w'
 
+RECAPTCHA_SECRET_KEY = "6LeMRm4qAAAAAPslEmmSL7zQBpwLV-YHw0R99ytB"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -31,6 +32,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 # Application definition
 
 INSTALLED_APPS = [
+ 
     'users',
     'chipin',
     'django.contrib.admin',
@@ -42,6 +44,12 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
